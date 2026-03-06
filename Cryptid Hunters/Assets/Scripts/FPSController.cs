@@ -13,7 +13,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [SerializeField] private float gravity = 50f;
 
     public float lookSpeed = 2f;
-    public float lookXLimit = 45f;
+    public float lookXLimit = 50f;
 
     UnityEngine.Vector3 moveDirection = UnityEngine.Vector3.zero;
     float rotationX = 0;
