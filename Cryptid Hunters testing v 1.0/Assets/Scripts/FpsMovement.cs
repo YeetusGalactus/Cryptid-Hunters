@@ -29,6 +29,7 @@ public class FpsMovement : MonoBehaviour
     [SerializeField] private InputActionReference jumpAction;
     [SerializeField] private InputActionReference crouchAction;
     [SerializeField] private InputActionReference sprintAction;
+    
 
 
     private CharacterController _characterController;
@@ -38,6 +39,7 @@ public class FpsMovement : MonoBehaviour
     private bool _isCrouching;
     private float _verticalVelocity;
     private float _targetHeight;
+    public int partCount = 0;
 
 
     private void Awake() {
@@ -137,6 +139,11 @@ public class FpsMovement : MonoBehaviour
         var cameraTargetPosition = cameraTransform.localPosition;
         cameraTargetPosition.y = _targetHeight - cameraOffset;
         cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, cameraTargetPosition, crouchTransitionSpeed * Time.deltaTime);
+    }
+
+    public void AddPart() {
+        partCount++;
+        Debug.Log("Parts collected: " + partCount);
     }
 
 }

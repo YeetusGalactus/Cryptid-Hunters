@@ -6,13 +6,12 @@ public class PickUpEnginePart : MonoBehaviour
 
     public GameObject EnginePartOnPlayer;
     public GameObject PickUpText;
-    public float partCount;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         EnginePartOnPlayer.SetActive(false);
         PickUpText.SetActive(false);
-        partCount = 0f;
         
     }
 
@@ -23,13 +22,16 @@ public class PickUpEnginePart : MonoBehaviour
             PickUpText.SetActive(true);
 
             if (Input.GetKey(KeyCode.E)) {
+                FpsMovement player = other.GetComponent<FpsMovement>();
 
+                if(player != null) {
+                    player.AddPart();
+                }
                 this.gameObject.SetActive(false);
                 //EnginePartOnPlayer.SetActive(true);
 
                 PickUpText.SetActive(false);
-                partCount++;
-                Debug.Log("engine part collected! Count: " + partCount);
+                
             }
         }
     }
