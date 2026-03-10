@@ -34,7 +34,7 @@ public class UseBoat : MonoBehaviour
                     InteractTextSuccess.SetActive(true);
                     InteractText.SetActive(false);
                     Debug.Log("You Escaped!");
-                    //SceneManager.LoadScene("WinScreen");
+                    SceneManager.LoadScene(2);
                     // add a scene manager and create a win screen
                 } else {
                     InteractText.SetActive(true);
