@@ -10,7 +10,7 @@ public class TouchPlayer : MonoBehaviour
 
             FpsMovement player = other.GetComponent<FpsMovement>();
 
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(5);
         } 
                     
     }
