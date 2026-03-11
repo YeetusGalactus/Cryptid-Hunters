@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public enum EnemyState { 
     Patrolling,
@@ -75,11 +76,12 @@ public class EnemyController : MonoBehaviour
                 }
                 break;
             case EnemyState.Attacking:
-                Attack();
-                if(!_isBiting && distanceToPlayer > attackRange) {
-                    _state = EnemyState.Following;
-                    _agent.isStopped = false;
-                }
+                
+                //Attack();
+                //if(!_isBiting && distanceToPlayer > attackRange) {
+                //    _state = EnemyState.Following;
+                //    _agent.isStopped = false;
+                //}
                 break;
 
         }
@@ -100,6 +102,8 @@ public class EnemyController : MonoBehaviour
         if(direction != Vector3.zero) {
             transform.rotation = Quaternion.LookRotation(direction);
         }
+
+        
     }
 
     private void OnBiteAnimationEnd() {
