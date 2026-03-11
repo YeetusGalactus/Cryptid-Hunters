@@ -6,6 +6,7 @@ public class PickUpEnginePart : MonoBehaviour
 
     public GameObject EnginePartOnPlayer;
     public GameObject PickUpText;
+    public NavigationArrow arrow;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,7 +27,9 @@ public class PickUpEnginePart : MonoBehaviour
 
                 if(player != null) {
                     player.AddPart();
+                    arrow.GoToNextObject();
                 }
+
                 this.gameObject.SetActive(false);
                 //EnginePartOnPlayer.SetActive(true);
 
