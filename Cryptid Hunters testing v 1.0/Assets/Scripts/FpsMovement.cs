@@ -29,7 +29,6 @@ public class FpsMovement : MonoBehaviour
     [SerializeField] private InputActionReference jumpAction;
     [SerializeField] private InputActionReference crouchAction;
     [SerializeField] private InputActionReference sprintAction;
-    
 
 
     private CharacterController _characterController;
@@ -43,9 +42,15 @@ public class FpsMovement : MonoBehaviour
 
 
     private void Awake() {
+
         _characterController = GetComponent<CharacterController>();
         _targetHeight = standingHeight;
     }
+
+    //private void Start() {
+    //    if (!GetComponent<Alteruna.Avatar>().IsMe);
+    //    enabled = false;
+    //}
 
     private void OnEnable() {
         moveAction.action.performed += StoreMovementInput;
@@ -65,11 +70,13 @@ public class FpsMovement : MonoBehaviour
     }
 
     private void Update() {
+
         _isGrounded = _characterController.isGrounded;
         
         HandleGravity();
         HandleMovement();
         HandleCrouchTransition();
+
     }
 
     private void StoreMovementInput(InputAction.CallbackContext context) {
